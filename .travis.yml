@@ -207,3 +207,13 @@ jobs:
         - sudo apt-get install libnewlib-arm-none-eabi
       script:
         - make ${MAKEOPTS} -C ports/teensy
+
+    # spresense port
+    - stage: test
+      env: NAME="spresense port build"
+      install:
+        - sudo apt-get install gcc-arm-none-eabi
+        - sudo apt-get install libnewlib-arm-none-eabi
+        - git -C ports/spresense clone https://github.com/sonydevworld/spresense-micropython.git spresense-sdk
+      script:
+        - make ${MAKEOPTS} -C ports/spresense
