@@ -30,5 +30,6 @@
 #include "py/obj.h"
 
 extern const mp_obj_type_t machine_pin_type;
+extern const mp_obj_type_t machine_hw_spi_type;
 
 #endif // MICROPY_INCLUDED_SPRESENSE_MODMACHINE_H

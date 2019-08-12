@@ -44,3 +44,8 @@ void mp_hal_pin_output(mp_hal_pin_obj_t pin);
 int mp_hal_pin_read(mp_hal_pin_obj_t pin);
 void mp_hal_pin_write(mp_hal_pin_obj_t pin, int v);
 
+#define mp_hal_delay_us_fast(p) mp_hal_delay_us(p)
+
+#define SPIDEV_PORT_4     (4)
+#define SPIDEV_PORT_5     (5)
+

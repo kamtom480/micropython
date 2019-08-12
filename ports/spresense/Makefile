@@ -73,11 +73,13 @@ SRC_C = \
 	mphalport.c \
 	modmachine.c \
 	machine_pin.c \
+	machine_spi.c \
 	lib/utils/printf.c \
 	lib/utils/stdout_helpers.c \
 	lib/utils/pyexec.c \
 	lib/libc/string0.c \
 	lib/mp-readline/readline.c \
+	drivers/bus/softspi.c \
 
 OBJ = $(PY_O) $(addprefix $(BUILD)/, $(SRC_C:.c=.o))
 
