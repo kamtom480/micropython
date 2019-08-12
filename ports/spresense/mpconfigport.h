@@ -34,6 +34,8 @@
 #define MICROPY_PY_MACHINE_SPI_MSB          (0)
 #define MICROPY_PY_MACHINE_SPI_LSB          (1)
 #define MICROPY_PY_MACHINE_SPI_MAKE_NEW     machine_hw_spi_make_new
+#define MICROPY_PY_MACHINE_I2C              (1)
+#define MICROPY_PY_MACHINE_I2C_MAKE_NEW     machine_hw_i2c_make_new
 
 // type definitions for the specific machine
 

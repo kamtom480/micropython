@@ -49,3 +49,5 @@ void mp_hal_pin_write(mp_hal_pin_obj_t pin, int v);
 #define SPIDEV_PORT_4     (4)
 #define SPIDEV_PORT_5     (5)
 
+#define I2CDEV_PORT_0     (0)
+
