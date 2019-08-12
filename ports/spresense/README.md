@@ -25,6 +25,8 @@ Supported features:
 
 * The machine module with GPIO, I2C, SPI, UART, ADC, PWM and RTC
 
+* NuttX file system with SD card and Flash memory
+
 Refer to [developer.sony.com/develop/spresense/](https://developer.sony.com/develop/spresense/)
 for further information about this board.
 

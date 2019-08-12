@@ -80,6 +80,8 @@ SRC_C = \
 	machine_adc.c \
 	machine_pwm.c \
 	modutime.c \
+	moduos.c \
+	file.c \
 	lib/utils/printf.c \
 	lib/utils/stdout_helpers.c \
 	lib/utils/pyexec.c \

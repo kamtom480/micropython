@@ -28,6 +28,9 @@
 
 #define MICROPY_HELPER_REPL                 (1)
 #define MICROPY_MODULE_WEAK_LINKS           (1)
+#define MICROPY_PY_IO_IOBASE                (1)
+#define MICROPY_PY_IO_FILEIO                (1)
+#define MICROPY_PY_IO_BUFFEREDWRITER        (1)
 #define MICROPY_PY_UTIME_MP_HAL             (1)
 
 #define MICROPY_PY_MACHINE                  (1)
@@ -67,9 +70,11 @@ extern const struct _mp_obj_module_t uos_module;
 #define MICROPY_PORT_BUILTIN_MODULES \
     { MP_OBJ_NEW_QSTR(MP_QSTR_machine), (mp_obj_t)&mp_module_machine }, \
     { MP_OBJ_NEW_QSTR(MP_QSTR_utime), (mp_obj_t)&utime_module }, \
+    { MP_OBJ_NEW_QSTR(MP_QSTR_uos), (mp_obj_t)&uos_module }, \
 
 #define MICROPY_PORT_BUILTIN_MODULE_WEAK_LINKS \
     { MP_OBJ_NEW_QSTR(MP_QSTR_time), (mp_obj_t)&utime_module }, \
+    { MP_OBJ_NEW_QSTR(MP_QSTR_os), (mp_obj_t)&uos_module }, \
 
 // We need to provide a declaration/definition of alloca()
 #define alloca(a) __builtin_alloca(a)

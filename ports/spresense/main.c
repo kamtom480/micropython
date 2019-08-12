@@ -59,6 +59,7 @@ int spresense_main(void)
     mp_hal_init();
 
     for (;;) {
+        setenv("PWD", "/mnt/spif", 1);
         mp_init();
 
         for (;;) {
@@ -84,15 +85,6 @@ mp_lexer_t *mp_lexer_new_from_file(const char *filename) {
     mp_raise_OSError(MP_ENOENT);
 }
 
-mp_import_stat_t mp_import_stat(const char *path) {
-    return MP_IMPORT_STAT_NO_EXIST;
-}
-
-mp_obj_t mp_builtin_open(size_t n_args, const mp_obj_t *args, mp_map_t *kwargs) {
-    return mp_const_none;
-}
-MP_DEFINE_CONST_FUN_OBJ_KW(mp_builtin_open_obj, 1, mp_builtin_open);
-
 void nlr_jump_fail(void *val) {
     while (1);
 }
@@ -107,3 +99,35 @@ void MP_WEAK __assert_func(const char *file, int line, const char *func, const c
     __fatal_error("Assertion failed");
 }
 #endif
+
+const char *get_full_path(const char *path) {
+    char *full_path = NULL;
+    const char *pwd;
+    int len;
+
+    if (path == NULL) {
+        full_path = strdup(getenv("PWD"));
+    } else if (path[0] == '/') {
+        full_path = strdup(path);
+    } else {
+        pwd = getenv("PWD");
+
+        if (pwd[strlen(pwd) - 1] == '/') {
+            len = strlen(pwd) + strlen(path) + 1;
+            full_path = (char*) malloc(len);
+            if (!full_path) {
+                nlr_raise(mp_obj_new_exception_msg(&mp_type_OSError, "Cannot allocate memory for full_path"));
+            }
+            sprintf(full_path, "%s%s", pwd, path);
+        } else {
+            len = strlen(pwd) + strlen(path) + 2;
+            full_path = (char*)malloc(len);
+            if (!full_path) {
+                nlr_raise(mp_obj_new_exception_msg(&mp_type_OSError, "Cannot allocate memory for full_path"));
+            }
+            sprintf(full_path, "%s/%s", pwd, path);
+        }
+    }
+
+    return full_path;
+}

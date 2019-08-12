@@ -30,6 +30,7 @@
 
 void mp_hal_init(void);
 void mp_hal_set_interrupt_char(char c);
+const char *get_full_path(const char *path);
 
 #define MP_HAL_PIN_FMT "%u"
 #define mp_hal_pin_name(p) (p)
