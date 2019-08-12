@@ -23,7 +23,7 @@ Supported features:
 
 * REPL (python prompt) via USB serial
 
-* The machine module with GPIO, I2C, SPI, UART
+* The machine module with GPIO, I2C, SPI, UART, ADC
 
 Refer to [developer.sony.com/develop/spresense/](https://developer.sony.com/develop/spresense/)
 for further information about this board.

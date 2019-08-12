@@ -33,5 +33,6 @@ extern const mp_obj_type_t machine_pin_type;
 extern const mp_obj_type_t machine_hw_spi_type;
 extern const mp_obj_type_t machine_hw_i2c_type;
 extern const mp_obj_type_t machine_uart_type;
+extern const mp_obj_type_t machine_adc_type;
 
 #endif // MICROPY_INCLUDED_SPRESENSE_MODMACHINE_H
