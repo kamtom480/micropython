@@ -53,3 +53,5 @@ void mp_hal_pin_write(mp_hal_pin_obj_t pin, int v);
 
 #define UART_2            (2)
 
+#define arrayLength(a)      (sizeof(a) / sizeof((a)[0]))
+#define arrayForEach(a, i)  for (unsigned int i = 0; i < arrayLength(a); ++i)
