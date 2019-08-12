@@ -51,3 +51,5 @@ void mp_hal_pin_write(mp_hal_pin_obj_t pin, int v);
 
 #define I2CDEV_PORT_0     (0)
 
+#define UART_2            (2)
+

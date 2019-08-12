@@ -75,6 +75,7 @@ SRC_C = \
 	machine_pin.c \
 	machine_spi.c \
 	machine_i2c.c \
+	machine_uart.c \
 	lib/utils/printf.c \
 	lib/utils/stdout_helpers.c \
 	lib/utils/pyexec.c \
