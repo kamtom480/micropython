@@ -76,6 +76,7 @@ SRC_C = \
 	machine_spi.c \
 	machine_i2c.c \
 	machine_uart.c \
+	machine_rtc.c \
 	machine_adc.c \
 	machine_pwm.c \
 	lib/utils/printf.c \
@@ -83,6 +84,7 @@ SRC_C = \
 	lib/utils/pyexec.c \
 	lib/libc/string0.c \
 	lib/mp-readline/readline.c \
+	lib/timeutils/timeutils.c \
 	drivers/bus/softspi.c \
 
 OBJ = $(PY_O) $(addprefix $(BUILD)/, $(SRC_C:.c=.o))
