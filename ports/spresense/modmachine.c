@@ -24,23 +24,22 @@
  * THE SOFTWARE.
  */
 
-#include "pin_def.h"
-#include <sys/types.h>
 #include "py/obj.h"
 
-void mp_hal_init(void);
-void mp_hal_set_interrupt_char(char c);
+#include "modmachine.h"
 
-#define MP_HAL_PIN_FMT "%u"
-#define mp_hal_pin_name(p) (p)
-#define mp_hal_pin_obj_t uint8_t
-#define mp_hal_get_pin_obj(o) machine_pin_get_id(o)
-uint8_t machine_pin_get_id(mp_obj_t pin_in);
-void mp_hal_pin_od_low(mp_hal_pin_obj_t pin);
-void mp_hal_pin_od_high(mp_hal_pin_obj_t pin);
-void mp_hal_pin_open_drain(mp_hal_pin_obj_t pin);
-void mp_hal_pin_input(mp_hal_pin_obj_t pin);
-void mp_hal_pin_output(mp_hal_pin_obj_t pin);
-int mp_hal_pin_read(mp_hal_pin_obj_t pin);
-void mp_hal_pin_write(mp_hal_pin_obj_t pin, int v);
+#if MICROPY_PY_MACHINE
 
+STATIC const mp_rom_map_elem_t machine_module_globals_table[] = {
+    { MP_ROM_QSTR(MP_QSTR___name__), MP_ROM_QSTR(MP_QSTR_umachine) },
+    { MP_ROM_QSTR(MP_QSTR_Pin), MP_ROM_PTR(&machine_pin_type) },
+};
+
+STATIC MP_DEFINE_CONST_DICT(machine_module_globals, machine_module_globals_table);
+
+const mp_obj_module_t mp_module_machine = {
+    .base = { &mp_type_module },
+    .globals = (mp_obj_dict_t*)&machine_module_globals,
+};
+
+#endif // MICROPY_PY_MACHINE

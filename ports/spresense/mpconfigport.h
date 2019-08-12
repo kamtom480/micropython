@@ -28,6 +28,9 @@
 
 #define MICROPY_HELPER_REPL                 (1)
 
+#define MICROPY_PY_MACHINE                  (1)
+#define MICROPY_PY_MACHINE_PIN_MAKE_NEW     mp_pin_make_new
+
 // type definitions for the specific machine
 
 #define MICROPY_MAKE_POINTER_CALLABLE(p) ((void*)((mp_uint_t)(p) | 1))
@@ -52,6 +55,9 @@ extern const struct _mp_obj_module_t uos_module;
 // extra built in names to add to the global namespace
 #define MICROPY_PORT_BUILTINS \
     { MP_ROM_QSTR(MP_QSTR_open), MP_ROM_PTR(&mp_builtin_open_obj) },
+
+#define MICROPY_PORT_BUILTIN_MODULES \
+    { MP_OBJ_NEW_QSTR(MP_QSTR_machine), (mp_obj_t)&mp_module_machine }, \
 
 // We need to provide a declaration/definition of alloca()
 #define alloca(a) __builtin_alloca(a)

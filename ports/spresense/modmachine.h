@@ -24,23 +24,11 @@
  * THE SOFTWARE.
  */
 
-#include "pin_def.h"
-#include <sys/types.h>
+#ifndef MICROPY_INCLUDED_SPRESENSE_MODMACHINE_H
+#define MICROPY_INCLUDED_SPRESENSE_MODMACHINE_H
+
 #include "py/obj.h"
 
-void mp_hal_init(void);
-void mp_hal_set_interrupt_char(char c);
+extern const mp_obj_type_t machine_pin_type;
 
-#define MP_HAL_PIN_FMT "%u"
-#define mp_hal_pin_name(p) (p)
-#define mp_hal_pin_obj_t uint8_t
-#define mp_hal_get_pin_obj(o) machine_pin_get_id(o)
-uint8_t machine_pin_get_id(mp_obj_t pin_in);
-void mp_hal_pin_od_low(mp_hal_pin_obj_t pin);
-void mp_hal_pin_od_high(mp_hal_pin_obj_t pin);
-void mp_hal_pin_open_drain(mp_hal_pin_obj_t pin);
-void mp_hal_pin_input(mp_hal_pin_obj_t pin);
-void mp_hal_pin_output(mp_hal_pin_obj_t pin);
-int mp_hal_pin_read(mp_hal_pin_obj_t pin);
-void mp_hal_pin_write(mp_hal_pin_obj_t pin, int v);
-
+#endif // MICROPY_INCLUDED_SPRESENSE_MODMACHINE_H

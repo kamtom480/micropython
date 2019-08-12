@@ -71,6 +71,8 @@ LDFLAGS = \
 SRC_C = \
 	main.c \
 	mphalport.c \
+	modmachine.c \
+	machine_pin.c \
 	lib/utils/printf.c \
 	lib/utils/stdout_helpers.c \
 	lib/utils/pyexec.c \
